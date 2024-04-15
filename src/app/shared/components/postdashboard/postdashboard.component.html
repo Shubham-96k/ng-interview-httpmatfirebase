@@ -1,0 +1,28 @@
+
+
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-title class="d-flex justify-content-between align-items-center">
+                Add Post
+                <button
+                mat-mini-fab color="primary"
+                (click)="onaddpost()"
+                >
+                <mat-icon>add</mat-icon>
+                </button>
+            </mat-card-title>
+        </mat-card>
+        <div class="col-md-6 offset-md-3" *ngIf="postarr">
+            <app-postcard
+            *ngFor="let post of postarr"
+            [postobj]="post"
+            ></app-postcard>
+        </div>
+    </div>
+</div>
+
+
+
+<img *ngIf="!postarr" src="https://i.pinimg.com/originals/c9/22/68/c92268d92cf2dbf96e3195683d9e14fb.png" alt="no data found" title="No Post" class="w-100 mt-5">
+

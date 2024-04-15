@@ -1,0 +1,32 @@
+
+
+<mat-card class="my-3">
+    
+    <mat-card-title class="mb-3">
+        {{postobj.title | uppercase}}
+    </mat-card-title>
+    
+    <mat-card-content>
+        {{postobj.body}}
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="primary"
+        (click)="onEditpost()"
+        >
+            <strong>
+                Edit
+            </strong>
+        </button>
+        <button mat-raised-button color="warn"
+        (click)="onRemovePost()"
+        >
+            <strong>
+                Delete
+            </strong>
+        </button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

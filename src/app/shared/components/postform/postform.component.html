@@ -1,0 +1,60 @@
+
+
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="postform" (ngSubmit)="onAddPost()">
+            <div class="form-group">
+                <label for="title">
+                    <strong>
+                        Title : 
+                    </strong>
+                </label>
+                <input type="text" id="title" class="form-control" formControlName="title">
+            </div>
+            <div class="form-group">
+                <label for="body">
+                    <strong>
+                        Content : 
+                    </strong>
+                </label>
+                <textarea type="text" rows="4" id="body" class="form-control" formControlName="body">
+
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="userid">
+                    <strong>
+                        User Id : 
+                    </strong>
+                </label>
+                <select id="userid" formControlName="userId" class="form-control">
+                    <option value="0">0</option>
+                    <option [value]="val" *ngFor="let val of [1,2,3,4,5]">
+                        {{val}}
+                    </option>
+                </select>
+            </div>
+            <div class="text-right">
+                <button mat-raised-button color="primary"
+                type="submit"
+                *ngIf="!isinEditMode"
+                [disabled]="postform.invalid"
+                >
+                    <strong>
+                        Add Post
+                    </strong>
+                </button>
+                <button mat-raised-button color="primary"
+                type="button"
+                *ngIf="isinEditMode"
+                [disabled]="postform.invalid"
+                (click)="onUpdatepost()"
+                >
+                    <strong>
+                        Update Post
+                    </strong>
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
